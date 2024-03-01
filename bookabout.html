@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Your HTML content here -->
+<header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="mainpage.html" class="logo text-dark">Book Shop</a>
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="mainpage.html">Главная</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Категории</a>
+                                <ul>
+                                    <li><a href="shop.php">Все книги</a></li>
+                                    <li><a href="#">Фантастика</a></li>
+                                    <li><a href="#">Детективы</a></li>
+                                    <li><a href="#">Романы</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="">Авторизация</a></li>
+                            <li class="scroll-to-section"><a href="cart.php"><i class='bx bx-cart-alt' style="font-size: 18px; padding-top:10px"></i></a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-heading" id="top"></div>
+    
+    <section class="section" id="product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="">
+                        <img src="assets/images/rey.jfif" alt="" style="height: 500px; margin-left: 100px;">
+                    </div>
+                </div>
+                <div class="col-lg-5" >
+                    <div class="right-content"style="margin-right: px;">
+                        <h4>Название книги</h4>
+                        <span class="price">$19.99</span>
+                        <ul class="stars m-4" data-book-id="1">
+                            <li class="star selected" data-rating="1"><i class="fa fa-star"></i></li>
+                            <li class="star selected" data-rating="2"><i class="fa fa-star"></i></li>
+                            <li class="star" data-rating="3"><i class="fa fa-star"></i></li>
+                            <li class="star" data-rating="4"><i class="fa fa-star"></i></li>
+                            <li class="star" data-rating="5"><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>Автор книги</span>
+                        <div class="quote">
+                            <i class="fa fa-quote-left"></i><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                        </div>
+                        <form action="" method="post">
+                            <input type="hidden" name="book_id" value="1">
+                            <input type="hidden" name="user_id" value="1">
+                            <div class="quantity-content">
+                                <div class="left-content">
+                                    <h6>Количество книг</h6>
+                                </div>
+                                <div class="right-content">
+                                    <div class="quantity buttons_added">
+                                        <input type="button" value="-" class="minus">
+                                        <input type="number" step="1" min="1" max="" name="amount" value="1" title="Qty" class="input-text qty text">
+                                        <input type="button" value="+" class="plus">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total">
+                                <h4>Общая Сумма: $<span name="total" id="totalAmount">19.99</span></h4>
+                                <div class="main-border-button"><button name="add_to_cart">Добавить в корзину</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <a class="logo" style="color: white" href="mainpage.html"><h6>Shop</h6></a>
+                        </div>
+                        <ul>
+                            <li><a href="#">Jandosova, 55, Almaty, Kazakhstan</a></li>
+                            <li><a href="#">bookshop@company.kz</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Add other footer content here -->
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript Files -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/datepicker.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/slick.js"></script> 
+    <script src="assets/js/lightbox.js"></script> 
+    <script src="assets/js/isotope.js"></script> 
+    <script src="assets/js/custom.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var qtyInput = document.querySelector('.qty');
+            var totalAmount = document.getElementById('totalAmount');
+
+            var pricePerBook = 19.99;
+            var total = pricePerBook;
+
+            function updateTotal() {
+                var quantity = parseInt(qtyInput.value, 10) || 1;
+                total = pricePerBook * quantity;
+                totalAmount.textContent = total.toFixed(2);
+            }
+
+            document.querySelector('.plus').addEventListener('click', function() {
+                qtyInput.stepUp();
+                updateTotal();
+            });
+
+            document.querySelector('.minus').addEventListener('click', function() {
+                qtyInput.stepDown();
+                updateTotal();
+            });
+
+            qtyInput.addEventListener('input', updateTotal);
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('.stars .star').on('click', function() {
+                var rating = $(this).data('rating');
+                // Your AJAX call here
+                $(this).parent().find('.star').removeClass('selected');
+                $(this).prevAll().andSelf().addClass('selected');
+            });
+        });
+    </script>
+</body>
+</html>
