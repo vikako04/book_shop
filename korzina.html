@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
+    <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <link rel="stylesheet" href="assets/css/lightbox.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .title{
+            margin-bottom: 5vh;
+        }
+        .card{
+            margin: auto;
+            max-width: 950px;
+            width: 90%;
+            box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 1rem;
+            border: transparent;
+        }
+        @media(max-width:767px){
+            .card{
+                margin: 3vh auto;
+            }
+        }
+        .cart{
+            background-color: #fff;
+            padding: 4vh 5vh;
+            border-bottom-left-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+        @media(max-width:767px){
+            .cart{
+                padding: 4vh;
+                border-bottom-left-radius: unset;
+                border-top-right-radius: 1rem;
+            }
+        }
+        .summary{
+            background-color: #ddd;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            padding: 4vh;
+            color: rgb(65, 65, 65);
+        }
+        @media(max-width:767px){
+            .summary{
+            border-top-right-radius: unset;
+            border-bottom-left-radius: 1rem;
+            }
+        }
+        .summary .col-2{
+            padding: 0;
+        }
+        .summary .col-10
+        {
+            padding: 0;
+        }.row{
+            margin: 0;
+        }
+        .title b{
+            font-size: 1.5rem;
+        }
+        .main{
+            margin: 0;
+            padding: 2vh 0;
+            width: 100%;
+        }
+        .col-2, .col{
+            padding: 0 1vh;
+        }
+        a{
+            padding: 0 1vh;
+        }
+        .close{
+            margin-left: auto;
+            font-size: 0.7rem;
+        }
+        img{
+            width: 3.5rem;
+        }
+        .back-to-shop{
+            margin-top: 4.5rem;
+        }
+        h5{
+            margin-top: 4vh;
+        }
+        hr{
+            margin-top: 1.25rem;
+        }
+        form{
+            padding: 2vh 0;
+        }
+        select{
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding: 1.5vh 1vh;
+            margin-bottom: 4vh;
+            outline: none;
+            width: 100%;
+            background-color: rgb(247, 247, 247);
+        }
+        input{
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding: 1vh;
+            margin-bottom: 4vh;
+            outline: none;
+            width: 100%;
+            background-color: rgb(247, 247, 247);
+        }
+        input:focus::-webkit-input-placeholder
+        {
+            color:transparent;
+        }
+        .btn{
+            background-color: #000;
+            border-color: #000;
+            color: white;
+            width: 100%;
+            font-size: 0.7rem;
+            margin-top: 4vh;
+            padding: 1vh;
+            border-radius: 0;
+        }
+        .btn:focus{
+            box-shadow: none;
+            outline: none;
+            box-shadow: none;
+            color: white;
+            -webkit-box-shadow: none;
+            -webkit-user-select: none;
+            transition: none; 
+        }
+        .btn:hover{
+            color: white;
+        }
+        a{
+            color: black; 
+        }
+        a:hover{
+            color: black;
+            text-decoration: none;
+        }
+        #code{
+            background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+            background-repeat: no-repeat;
+            background-position-x: 95%;
+            background-position-y: center;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="mainpage.html" class="logo text-dark">Book Shop</a>
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="mainpage.html">Главная</a></li>
+                            <li class="submenu">
+                                <a href="javascript:;">Категории</a>
+                                <ul>
+                                    <li><a href="">Все книги</a></li>
+                                    <li><a href="#">Фантастика</a></li>
+                                    <li><a href="#">Детективы</a></li>
+                                    <li><a href="#">Романы</a></li>
+                                </ul>
+                            </li>
+                            <li class="scroll-to-section"><a href="">Авторизация</a></li>
+                            <li class="scroll-to-section"><a href="korzina.html"><i class='bx bx-cart-alt' style="font-size: 18px; padding-top:10px"></i></a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<section class="section mt-4" id="men">
+    <!-- Здесь ваш HTML код для секции корзины -->
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-md-8 cart">
+                    <div class="title">
+                        <div class="row">
+                            <div class="col"><h4><b>Корзина</b></h4></div>
+                            <div class="col align-self-center text-right text-muted"></div>
+                        </div>
+                    </div>
+                    <!-- Пример элемента корзины -->
+                    <div class="row border-top border-bottom">
+                        <form action="" method="post" class="row main align-items-center">
+                            <input type="hidden" name="cart_id" value="1">
+                            <input type="hidden" name="price" value="10">
+                            <div class="col-2"><img class="img-fluid" src="assets/images/rey.jfif"></div>
+                            <div class="col">
+                                <div class="row text-muted">Категория книги</div>
+                                <div class="row">Название книги</div>
+                            </div>
+                            <div class="col">
+                                <div class="quantity buttons_added">
+                                    <input type="button" value="-" class="minus">
+                                    <input type="number" step="1" min="0" max="" name="amount" value="1" title="Qty" class="input-text qty text" data-price="10">
+                                    <input type="button" value="+" class="plus">
+                                </div>
+                            </div>
+                            <div class="col">
+                                $ 10
+                                <!-- <span class="close"><button style="background-color:green; border:none; margin-top: 2px; padding: 5px; color: white; border-radius: 5px;" name="update_cart">Обновить</button></span> -->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Конец примера элемента корзины -->
+                    <div class="back-to-shop"><a href="mainpage.html">&leftarrow;</a><span class="text-muted">Назад к покупкам</span></div>
+                </div>
+                <div class="col-md-4 summary">
+                    <div class="mb-2"><h5><b>Summary</b></h5></div>
+                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                        <div class="col">Общая Сумма</div>
+                        <div class="col text-right" id="totalAmount">$ 30.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="first-item">
+                        <div class="logo">
+                            <a class="logo" style="color: white" href="mainpage.html"><h6>Shop</h6></a>
+                        </div>
+                        <ul>
+                            <li><a href="#">Jandosova, 55, Almaty, Kazakhstan</a></li>
+                            <li><a href="#">bookshop@company.kz</a></li>
+                            <li><a href="#">010-020-0340</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Add other footer content here -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/datepicker.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/slick.js"></script> 
+    <script src="assets/js/lightbox.js"></script> 
+    <script src="assets/js/isotope.js"></script> 
+    <script src="assets/js/custom.js"></script>
+
+ <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                    var qtyInputs = document.querySelectorAll('.qty');
+                    var totalAmount = document.getElementById('totalAmount');
+
+                    function updateTotal() {
+                        var totalPrice = 0;
+
+                        qtyInputs.forEach(function(qtyInput) {
+                            var pricePerBook = parseFloat(qtyInput.dataset.price);
+                            var quantity = parseInt(qtyInput.value, 10) || 1;
+                            totalPrice += pricePerBook * quantity;
+                        });
+
+                        totalAmount.textContent = '$ ' + totalPrice.toFixed(2);
+                    }
+
+                    function handleQuantityChange() {
+                        updateTotal();
+                    }
+
+                    function handleButtonClick(event) {
+                    var qtyInput = event.target.parentNode.querySelector('.qty');
+                    var currentQuantity = parseInt(qtyInput.value, 10) || 1;
+
+                    if (event.target.classList.contains('plus')) {
+                        qtyInput.value = currentQuantity + 1;
+                    } else if (event.target.classList.contains('minus')) {
+                        // Check for minimum value of 0
+                        qtyInput.value = Math.max(currentQuantity - 1, 0);
+                    }
+
+                    updateTotal();
+                    }
+
+                    qtyInputs.forEach(function(qtyInput) {
+                        qtyInput.addEventListener('input', handleQuantityChange);
+                    });
+
+                    var plusButtons = document.querySelectorAll('.plus');
+                    var minusButtons = document.querySelectorAll('.minus');
+
+                    plusButtons.forEach(function(button) {
+                        button.addEventListener('click', handleButtonClick);
+                    });
+
+                    minusButtons.forEach(function(button) {
+                        button.addEventListener('click', handleButtonClick);
+                    });
+                });
+
+
+</script>
+
+</body>
+</html>
