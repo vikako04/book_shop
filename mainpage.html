@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store</title>
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
@@ -24,14 +23,14 @@
                             <li class="submenu">
                                 <a href="javascript:;">Категории</a>
                                 <ul>
-                                    <li><a href="">Все книги</a></li>
+                                    <li><a href="shop.php">Все книги</a></li>
                                     <li><a href="#">Фантастика</a></li>
                                     <li><a href="#">Детективы</a></li>
                                     <li><a href="#">Романы</a></li>
                                 </ul>
                             </li>
-                            <li class="scroll-to-section"><a href="profile.html">Авторизация</a></li>
-                            <li class="scroll-to-section"><a href=""><i class='bx bx-cart-alt' style="font-size: 18px; padding-top:10px"></i></a></li>
+                            <li class="scroll-to-section"><a href="">Авторизация</a></li>
+                            <li class="scroll-to-section"><a href="cart.php"><i class='bx bx-cart-alt' style="font-size: 18px; padding-top:10px"></i></a></li>
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
@@ -59,14 +58,15 @@
                         <div class="thumb">
                             <div class="hover-content">
                                 <ul>
-                                    <li><a href="bookabout.html"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href=""><i class="fa fa-star"></i></a></li>
+                                    <li><a href="show.php?id=1"><i class="fa fa-eye"></i></a></li>
+                                    <li><a href="shop.php?bookId=1"><i class="fa fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <img style="object-fit:contain; width:100%" src="assets/images/rey.jfif" alt="Book Image">
+                            <img style="object-fit:contain; width:100%" src="assets/images/vine.jfif" alt="Book Image">
                         </div>
                         <div class="down-content">
                             <h4>Вино из одуванчиков</h4>
+                            <h5>Рэй Бредбери</h5>
                             <span>$19.99</span>
                             <ul class="stars m-4" data-book-id="1">
                                 <li class="star selected" data-rating="1"><i class="fa fa-star"></i></li>
@@ -87,10 +87,11 @@
                                     <li><a href=""><i class="fa fa-star"></i></a></li>
                                 </ul>
                             </div>
-                            <img style="object-fit:contain; width:100%" src="assets/images/remark.jfif" alt="Book Image">
+                            <img style="object-fit:contain; width:100%" src="assets/images/life.jfif" alt="Book Image">
                         </div>
                         <div class="down-content">
                             <h4>Искра жизни</h4>
+                            <h5>Эрих Мария Ремарк</h5>
                             <span>$29.99</span>
                             <ul class="stars m-4" data-book-id="1">
                                 <li class="star selected" data-rating="1"><i class="fa fa-star"></i></li>
@@ -100,6 +101,7 @@
                                 <li class="star" data-rating="5"><i class="fa fa-star"></i></li>
                             </ul>
                         </div>
+                        <script src="search.js"></script>
                     </div>
                 </div>
                 <!-- Repeat this block for other books -->
@@ -148,7 +150,7 @@
     <!-- <script>
         $(function() {
             var selectedClass = "";
-            $("p").click(function(){5ddd
+            $("p").click(function(){
             selectedClass = $(this).attr("data-rel");
             $("#portfolio").fadeTo(50, 0.1);
                 $("#portfolio div").not("."+selectedClass).fadeOut();
