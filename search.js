@@ -30,7 +30,6 @@ form.appendChild(input);
 form.appendChild(button);
 content.appendChild(form);
 
-// Создаем чекбокс "от 0 до 20$"
 const label1 = document.createElement('label'); 
 label1.classList.add('checkbutton');
 label1.innerHTML = "от 0 до 20$"; 
@@ -39,7 +38,6 @@ checkButton1.setAttribute('type','checkbox');
 checkButton1.setAttribute('id','priceFilter1'); 
 label1.setAttribute('for', 'priceFilter1'); 
 
-// Создаем чекбокс "от 21$ и выше"
 const label2 = document.createElement('label'); 
 label2.classList.add('checkbutton');
 label2.innerHTML = "от 21$ и выше"; 
@@ -53,7 +51,6 @@ content.appendChild(label1);
 content.appendChild(checkButton2);
 content.appendChild(label2); 
 
-// Обработчик изменения состояния первого чекбокса
 function filterBooks1() {
     const isChecked1 = checkButton1.checked;
     const isChecked2 = checkButton2.checked;
@@ -73,7 +70,6 @@ function filterBooks1() {
     });
 }
 
-// Обработчик изменения состояния второго чекбокса
 function filterBooks2() {
     const isChecked1 = checkButton1.checked;
     const isChecked2 = checkButton2.checked;
