@@ -62,8 +62,6 @@ function filterBooks1() {
 
         if (isChecked1 && price <= 20) {
             bookContainer.style.display = 'block'; 
-        } else if (!isChecked1 && !isChecked2) {
-            bookContainer.style.display = 'block'; 
         } else {
             bookContainer.style.display = 'none'; 
         }
@@ -79,9 +77,7 @@ function filterBooks2() {
         const price = parseFloat(book.querySelector('.down-content span').textContent.replace('$', ''));
         const bookContainer = book.closest('.col-lg-4'); 
 
-        if (isChecked2 && price >= 21) {
-            bookContainer.style.display = 'block'; 
-        } else if (!isChecked1 && !isChecked2) {
+       if (isChecked2 && price >= 21) {
             bookContainer.style.display = 'block'; 
         } else {
             bookContainer.style.display = 'none'; 
