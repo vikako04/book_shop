@@ -21,6 +21,18 @@ header
     justify-content: space-between;
     align-items: center;
 }
+a
+{
+    text-decoration: none;
+}
+a.author
+{
+    color: #666666;
+}
+a.author:hover
+{
+    color: #333;
+}
 
 .logo 
 {
@@ -52,6 +64,7 @@ nav a:hover
 
 form.search 
 {
+    margin-left: 35px;
     margin-top: 10px;
     display: flex;
     align-items: center;
@@ -90,8 +103,9 @@ button.srch:hover
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 20px;
+
 }
-.log-reg-forms
+.log-reg-forms, .book-about
 {
     max-width: 1200px;
     margin: 140px auto 50px auto;
@@ -104,9 +118,17 @@ button.srch:hover
     margin-top: 5px;
     font-family: Montserrat;
 }
-
+.login-form
+{
+    margin-top: -8px;
+}
+.log-reg-forms p
+{
+    color: #666666;
+}
 .book 
 {
+
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -115,6 +137,7 @@ button.srch:hover
     margin-right: 20px;
     margin-left: 20px;
     text-align: center;
+
 }
 
 .book img
@@ -150,7 +173,9 @@ button.srch:hover
 {
     color: orange;
     margin-bottom: 10px;
+    
 }
+
 
 
 footer 
@@ -207,4 +232,174 @@ footer
 {
     background-color: #444;
 }
-        
+   
+
+
+.book-description 
+{
+    display: flex;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.book-description img 
+{
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.book-info 
+{
+    max-width: 800px;
+    padding: 20px;
+    flex-grow: 1;
+}
+.rat-tit
+{
+    margin-bottom: 30px;
+    margin-top: -30px;
+    align-items: center;
+    display: flex;
+}
+.rat-tit .rating
+{
+    font-size: 50px;
+    margin-left: 280px;
+}
+
+.book-info h2 
+{
+    font-size: 27px;
+    
+}
+
+.book-info p 
+{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.price-btns
+{
+    display: flex;
+    align-items: center;
+}
+
+.buttons 
+{
+    margin-left: 445px;
+}
+
+.button-add-to 
+{
+    font-size: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-add-to:hover 
+{
+    background-color: #444;
+}
+
+.reviews 
+{
+    margin-top: 40px;
+}
+
+.review 
+{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.review:last-child 
+{
+    border-bottom: none;
+}
+
+.review h3 
+{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review p 
+{
+    margin-bottom: 10px;
+}
+
+.review .rating 
+{
+    color: orange;
+    margin-bottom: 10px;
+}
+
+
+.add-review 
+{
+    margin-top: 40px;
+}
+
+.add-review h2 
+{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.add-review input[type="text"],
+.add-review textarea 
+{
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.add-review .rating 
+{
+    margin-bottom: 10px;
+}
+
+.add-review .rating .star 
+{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.add-review textarea 
+{
+    font-family: Montserrat;
+    height: 100px;
+}
+
+.add-review button 
+{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-review button:hover 
+{
+    background-color: #444;
+}
