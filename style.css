@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&family=Montserrat:wght@500;600;700&display=swap');
+body 
+{
+    font-family: Montserrat;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;    
+    color: #333;
+}
+header 
+{
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo 
+{
+    font-size: 30px;
+    font-weight: 700;
+    margin-left: 160px;
+}
+
+nav 
+{
+    margin-top: 10px;
+    margin-right: 190px;
+}
+
+nav a 
+{
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover 
+{        
+    background-color: #ddd;
+}
+
+form.search 
+{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"], input[type="password"], input[type="email"]  
+{
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-right: 5px;
+    width: 300px;
+    font-family: Montserrat;
+}
+
+button.srch
+{
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button.srch:hover 
+{
+    background-color: #444;
+}
+
+.container 
+{
+    max-width: 1200px;
+    margin: 140px auto 50px auto;
+    padding: 0 60px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 20px;
+}
+.log-reg-forms
+{
+    max-width: 1200px;
+    margin: 140px auto 50px auto;
+    padding: 0 60px;
+    height: auto;
+}
+.log-reg-forms input, button
+{
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-family: Montserrat;
+}
+
+.book 
+{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 11px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.book img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 5px;
+}
+        
+
+.book h2 
+{
+    font-size: 18px; 
+    margin-bottom: 5px; 
+    color: #333;
+}
+.book h3
+{
+    font-size: 18px; 
+    margin: 0; 
+    color: #333;
+}
+
+.book p 
+{
+    font-size: 15px;
+    margin-bottom: 5px;
+    color: #666;
+}
+.rating 
+{
+    color: orange;
+    margin-bottom: 10px;
+}
+
+
+footer 
+{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    clear: both;
+}
+.a
+{
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.a:hover 
+{
+    color: #666666;
+}
+.btn-details 
+{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-details:hover 
+{
+    background-color: #444;
+}
+
+
+.btn-login,
+.btn-register 
+{
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-register:hover 
+{
+    background-color: #444;
+}
+        
