@@ -3,54 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Store</title>
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-hexashop.css">
-    <link rel="stylesheet" href="assets/css/owl-carousel.css">
-    <link rel="stylesheet" href="assets/css/lightbox.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="mainpage.html" class="logo text-dark">Book Shop</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+        <form method="GET" class="search">
+            <input type="text" name="search" placeholder="Search..." id="search">
+            <button class="srch" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="log-reg.html">Login</a>
+        </nav>
     </header>
+    <div class="profile">
+        <div class="profile-content">
 
-    <section class="section mt-4" id="men">
-        <div class="container d-flex flex-row flex-wrap justify-content-start">
-            <div class="col-12 col-md-4">
-                <div class="card" style="margin-top: 20px;">
-                     <img style="object-fit:contain; width:50%" src="assets/images/remark.jfif" alt="Book Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Искра жизни</h5>
-                        <p class="card-text">Да, если хочешь сберечь силы и выжить, надо уметь забывать.</p>
-                        <a href="#" class="btn btn-primary">Подробнее</a>
-                    </div>
+            <div class="sidebar">
+                <ul>
+                    <li><a href="profile.html">Личные данные</a></li>
+                    <li><a href="favorites.html"><b>Избранное</b></a></li>
+                    <li><a href="korzina.html">Корзина</a></li>
+                </ul>
+                <div class="logout-btn">
+                    <button>Выйти из аккаунта</button>
                 </div>
             </div>
-            
-            <div class="col-12 col-md-4">
-                <div class="card" style="margin-top: 20px;">
-                     <img style="object-fit:contain; width:50%" src="assets/images/rey.jfif" alt="Book  Image">
-                    <div class="card-body">
-                        <h5 class="card-title">Вино из одуванчиков</h5>
-                        <p class="card-text">Первое, что узнаешь в жизни,  – это то, что ты глупец. Последнее, что узнаешь в жизни, – это то, что ты тот же глупец.</p>
-                        <a href="#" class="btn btn-primary">Подробнее</a>
-                    </div>
+            <div class="content-favor">
+                
+                <div class="book">
+                    <a href="bookabout.html">
+                        <img src="assets/images/remark.jpg">
+                        <h2>Искра жизни</h2>
+                        <p>Эрих Мария Ремарк</p>
+                        <div class="rating">
+                            &#9733; &#9733; &#9733; &#9733; &#9734;
+                        </div>
+                        <h3>2599 тг</h3>
+                    </a>
                 </div>
+                
+                
+                    <div class="book">
+                    <a href="bookabout.html">
+                        <img src="assets/images/flow.jpg">
+                        <h2>Цветы для Элджернона</h2>
+                        <p>Дэниел Киз</p>
+                        <div class="rating">
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                        </div>
+                        <h3>1399 тг</h3>
+                    </a>
+                    </div>
+                
+                
+                    <div class="book">
+                    <a href="bookabout.html">
+                        <img src="assets/images/getsb.jpg">
+                        <h2>Великий Гэтсби</h2>
+                        <p>Фрэнсис Скотт Фицджеральд</p>
+                        <div class="rating">
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                        </div>
+                        <h3>2399 тг</h3>
+                    </a>
+                    </div>
+               
+                
+                    <div class="book">
+                    <a href="bookabout.html">
+                        <img src="assets/images/jay.jpg">
+                        <h2>Джейн Эйр</h2>
+                        <p>Шарлотта Бронте</p>
+                        <div class="rating">
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                        </div>
+                        <h3>2199 тг</h3>
+                    </a>
+                    </div>
+                
+                
+                    <div class="book">
+                    <a href="bookabout.html">
+                        <img src="assets/images/dorian.jpg">
+                        <h2>Портрет Дориана Грея</h2>
+                        <p>Оскар Уайльд</p>
+                        <div class="rating">
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                        </div>
+                        <h3>2399 тг</h3>
+                    </a>
+                    </div>
+                
             </div>
-
-        
         </div>
-    </section>
+    </div>
+    <footer>
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
 </body>
 </html>
