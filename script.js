@@ -1,3 +1,4 @@
+//поиск
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form');
     const searchInput = document.getElementById('search');
@@ -28,5 +29,84 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             container.style.height = 'auto';
         }
+    });
+});
+
+
+//корзина
+document.addEventListener("DOMContentLoaded", function() {
+    
+    //удаление
+    var removeButtons = document.querySelectorAll(".remove-btn");
+    removeButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var item = this.closest(".item");
+            item.parentNode.removeChild(item);
+            calculateTotal();
+        });
+    });
+
+    //изменение количества
+    var quantityButtons = document.querySelectorAll(".quantity button");
+    quantityButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            var span = this.parentNode.querySelector("span");
+            var quantity = parseInt(span.textContent);
+            if (this.textContent === "-") {
+                if (quantity > 1) {
+                    quantity--;
+                }
+            } else {
+                quantity++;
+            }
+            span.textContent = quantity;
+            calculateTotal();
+            updateItemCost(this.closest(".item"), quantity);
+        });
+    });
+
+    //общая сумма
+    function calculateTotal() {
+        var items = document.querySelectorAll(".item");
+        var total = 0;
+        items.forEach(function(item) {
+            var price = parseFloat(item.querySelector(".item-details p.bookprice").textContent);
+            var quantity = parseInt(item.querySelector(".quantity span").textContent);
+            total += price * quantity;
+        });
+        document.getElementById("totalPrice").textContent = total + " тг";
+    }
+
+    //стоимость в зависимости от количества
+    function updateItemCost(item, quantity) {
+        var price = parseFloat(item.querySelector(".item-details p.bookprice").textContent);
+        var itemCost = price * quantity;
+        item.querySelector(".item-cost").textContent = itemCost + " тг";
+    }
+
+    calculateTotal();
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtn = document.querySelector('.filter-btn');
+    const filterPopup = document.querySelector('.filter-popup');
+    const applyFilterBtn = document.getElementById('apply-filter-btn');
+
+    // Показать/скрыть всплывающее окно при клике на кнопку фильтра
+    filterBtn.addEventListener('click', function() {
+        if (filterPopup.style.display === 'none') {
+            filterPopup.style.display = 'block';
+        } else {
+            filterPopup.style.display = 'none';
+        }
+    });
+
+    // Применить фильтр и скрыть всплывающее окно
+    applyFilterBtn.addEventListener('click', function() {
+        // Здесь можно получить значения фильтров и применить их к результатам поиска
+        filterPopup.style.display = 'none';
     });
 });

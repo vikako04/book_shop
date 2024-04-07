@@ -14,6 +14,73 @@
             <input type="text" name="search" placeholder="Search..." id="search">
             <button class="srch" type="submit"><i class="bi bi-search"></i></button>
         </form>
+        <button class="filter-btn"><i class="bi bi-sliders"></i></button>
+        <div class="filter-popup" style="display: none;">
+            <form id="filter-form">
+                <div class="filter-group">
+                    <h4>Цена:</h4>
+                    <label for="price-from">от:</label>
+                    <input  type="range" id="price-from" name="price-from" min="0" max="5000"  value="0">
+                    <span id="price-from-value">0</span><span> тг</span>
+    
+                    <label for="price-to">до:</label>
+                    <input type="range" id="price-to" name="price-to" min="0" max="5000" value="5000">
+                    <span id="price-to-value">5000</span><span> тг</span>
+                </div>
+                
+                <div class="filter-group">
+                    <h4>Авторы:</h4>
+                    <input type="checkbox" name="author" value="Jack London"> Джек Лондон<br>
+                    <input type="checkbox" name="author" value="Ray Bradbury"> Рэй Брэдбери<br>
+                    <input type="checkbox" name="author" value="Jack London"> Оскар Уайльд<br>
+                    <input type="checkbox" name="author" value="Ray Bradbury"> Джоан Роулинг<br>
+    
+                    <!-- Другие авторы -->
+                </div>
+                <div class="filter-group">
+                    <h4>Жанры:</h4>
+                    <input type="checkbox" name="genre" value="Fantasy"> Фэнтези<br>
+                    <input type="checkbox" name="genre" value="Science Fiction"> Научная фантастика<br>
+                    <input type="checkbox" name="genre" value="Fantasy"> Приключение<br>
+                    <input type="checkbox" name="genre" value="Science Fiction"> Роман<br>
+                    <!-- Другие жанры -->
+                </div>
+                <div class="filter-group">
+                    <h4>Рейтинг:</h4>
+                    <div id="rating-checkboxes">
+                        
+                        <div class="rating" style="font-size: 25px; margin: 0;">
+                            <input type="checkbox" id="rating-5" value="5">
+                            &#9733; &#9733; &#9733; &#9733; &#9733;
+                        </div>
+                
+                        <div class="rating" style="font-size: 25px; margin: 0;"> 
+                            <input type="checkbox" id="rating-4" value="4">
+                            &#9733; &#9733; &#9733; &#9733; &#9734;
+                        </div>
+                       
+                        <div class="rating" style="font-size: 25px; margin: 0;">
+                            <input type="checkbox" id="rating-3" value="3">
+                            &#9733; &#9733; &#9733; &#9734; &#9734;
+                        </div>
+                       
+                        <div class="rating" style="font-size: 25px; margin: 0;">
+                            <input type="checkbox" id="rating-2" value="2">
+                            &#9733; &#9733; &#9734; &#9734; &#9734;
+                        </div>
+                        
+                        <div class="rating" style="font-size: 25px; margin: 0;">
+                            <input type="checkbox" id="rating-1" value="1">
+                            &#9733; &#9734; &#9734; &#9734; &#9734;
+                        </div>
+                        
+            
+                    </div>
+                    <button type="submit" id="apply-filter-btn" class="btn-details" >Применить</button>
+                </div>
+                
+            </form>
+        </div>
         <nav>
             <a href="main.html">Home</a>
             <a href="profile.html">Profile</a>

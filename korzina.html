@@ -34,36 +34,62 @@
                 </div>
             </div>
             <div class="content">
-                <div class="cart-items">
-                    <!-- Список выбранных товаров -->
-                    <div class="cart-item">
-                        <img src="assets/images/de.jpg">
-                        <div class="item-details">
-                            <h2>Искра жизни</h2>
-                            <p>Эрих Мария Ремарк</p>
-                            <div class="rating">
-                                &#9733; &#9733; &#9733; &#9733; &#9734;
+                <div class="cart">
+                    <div class="items">
+                        <div class="item">
+                            <img src="assets/images/remark.jpg" alt="Book 1">
+                            <div class="item-details">
+                                <h3>Искра жизни</h3>
+                                <p>Эрих Мария Ремарк</p>
+                                <div class="rating">
+                                    &#9733; &#9733; &#9733; &#9733; &#9734;
+                                </div>
+                                <p class="bookprice">2599 тг</p>
+                                
                             </div>
-                            <h3>2599 тг</h3>
-                            
+                            <div class="item-actions">
+                                <div class="quantity">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                                <button class="remove-btn"><i class="bi bi-trash"></i></button>
+                                <div class="item-cost">2599 тг</div>
+
+                            </div>
                         </div>
-                        <div class="quantity-controls">
-                                <button class="decrease-quantity">-</button>
-                                <input type="number" class="quantity" value="1" min="1">
-                                <button class="increase-quantity">+</button>
+                        <div class="item">
+                            <img src="assets/images/getsb.jpg">
+                            <div class="item-details">
+                                
+                                <h3>Великий Гэтсби</h3>
+                                <p>Фрэнсис Скотт Фицджеральд</p>
+                                <div class="rating">
+                                    &#9733; &#9733; &#9733; &#9733; &#9733;
+                                </div>
+                                <p class="bookprice">2399 тг</p>
                             </div>
-                            <button class="remove-item">Удалить</button>
+                            <div class="item-actions">
+                                <div class="quantity">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                                <button class="remove-btn"><i class="bi bi-trash"></i></button>
+                                <div class="item-cost">2399 тг</div>
+
+                            </div>
+                        </div>
+                        <!-- Другие товары в корзине могут добавляться здесь -->
                     </div>
-                    <!-- Повторите блок cart-item для каждого товара в корзине -->
                 </div>
-                <div class="cart-summary">
-                    <!-- Общая стоимость и кнопка оформления заказа -->
-                    <h2>Общая стоимость: $20</h2>
-                    <button class="checkout-button">Оформить заказ</button>
+                <div class="total">
+                    <h3>Общая стоимость: <span id="totalPrice">0 тг</span></h3>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
     <footer>
         <p>BOOK SHOP</p>
         <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
