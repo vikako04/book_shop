@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+        
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="log-reg.html">Login</a>
+        </nav>
+    </header>
+    <div class="profile">
+        <div class="profile-content">
+
+            <div class="sidebar">
+                <ul>
+                    <li><a href="admin.html"><b>Личные данные</b></a></li>
+                    <li><a href="admin-func.html">Админ</a></li>
+                </ul>
+                <div class="logout-btn">
+                    <button>Выйти из аккаунта</button>
+                </div>
+            </div>
+            
+            <div class="content">
+                
+                    
+                <h2 >Добро пожаловать, <span class="welcome">Viktoriya</span>!</h2>
+                <p class="admin">АДМИН</p> 
+                    
+                
+                <div class="user-data-container">
+                    
+                    <div class="user-details">
+                        
+        
+                        <p><b>Username: </b> _viva04_</p>
+                        <p><b>Email: </b> viktoriya@gmail.com</p>
+                    </div>
+                    
+                </div>
+                <div class="change">
+                    <div class="change-password">
+                        <h4>Изменить пароль</h4>
+                        <form>
+                            <div class="form-group">
+                                <input type="password" id="current-password" name="current-password" placeholder="Текущий пароль">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="new-password" name="new-password" placeholder="Новый пароль">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="confirm-password" name="confirm-password" placeholder="Подтвердите новый пароль">
+                            </div>
+                            <button type="submit" class="btn-details">Сохранить</button>
+                    </div>
+                    <div class="change-email">
+                        <h4>Изменить Email</h4>
+                        <div class="form-group">
+                            <input type="email" id="current-email" name="current-email" placeholder="Текущий Email">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="new-email" name="new-email" placeholder="Новый Email">
+                        </div>
+                        <button class="btn-details">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

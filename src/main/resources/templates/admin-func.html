@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="style.css" th:href="@{style.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+        
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="log-reg.html">Login</a>
+        </nav>
+    </header>
+    <div class="profile">
+        <div class="profile-content">
+
+            <div class="sidebar">
+                <ul>
+                    <li><a href="admin.html">Личные данные</a></li>
+                    <li><a href="admin-func.html"><b>Админ</b></a></li>
+                </ul>
+                <div class="logout-btn">
+                    <button>Выйти из аккаунта</button>
+                </div>
+            </div>
+            
+            <div class="content-adm">
+                <div class="adm1">
+                    <h3>Добавить категорию</h3>
+                    <form method="POST" action="/addCategory">
+                        <input type="text" name="categoryName" id="categoryName" placeholder="Название категории" required><br>
+                        <button type="submit" class="btn-details">Добавить</button>
+                    </form>
+
+                    <h3>Добавить автора</h3>
+                    <form method="POST" action="/addAuthor" enctype="multipart/form-data">
+                        <input type="text" name="fullName" id="fullName" placeholder="Имя автора" required><br>
+                        <input type="text" name="yearsOfLife" id="yearsOfLife" placeholder="Годы жизни" required><br>
+                        <input type="text" name="yearsOfCreativity" id="yearsOfCreativity" placeholder="Годы творчества" required><br>
+                        <textarea placeholder="Биография" name="biography" id="biography"></textarea><br>
+                        <p>Жанры:</p>
+                        <div th:each="category : ${categories}">
+                            <input type="checkbox" id="'category_' + ${category.id}" name="categories" th:value="${category.id}"/>
+                            <label th:text="${category.categoryName}"></label><br>
+                        </div>
+                        <p>Фотография:</p>
+                        <input type="file" name="photo" id="photo"><br>
+                        <button type="submit" class="btn-details">Добавить</button>
+                    </form>
+                </div>
+                <div class="adm2">
+                    <h3>Добавить книгу</h3>
+                    <form method="POST" action="/addBook" enctype="multipart/form-data">
+                        <input type="text" name="title" placeholder="Название книги" required><br>
+                        <textarea placeholder="Описание" name="description"></textarea><br>
+                        <p>Автор:</p>
+                        <select name="author">
+                            <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.fullName}"></option>
+                        </select>
+                        <p>Жанры:</p>
+                        <div th:each="category : ${categories}">
+                            <input type="checkbox" name="category" th:value="${category.id}"/>
+                            <label th:text="${category.categoryName}"></label><br>
+                        </div>
+
+                        <input type="number" name="pages" placeholder="Страниц" required><br>
+                        <input type="number" name="price" placeholder="Цена" required><br>
+                        <input type="number" name="quantity" placeholder="Количество" required><br>
+                        <p>Обложка:</p>
+                        <input type="file" name="image" accept="image/*" required><br>
+
+                        <button type="submit" class="btn-details">Добавить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>
