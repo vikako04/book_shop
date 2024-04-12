@@ -20,11 +20,10 @@ CREATE TABLE IF NOT EXISTS public.authors
 (
     author_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     full_name text COLLATE pg_catalog."default" NOT NULL,
-    "biography " text COLLATE pg_catalog."default" NOT NULL,
     photo character varying COLLATE pg_catalog."default",
     years_of_life text COLLATE pg_catalog."default" NOT NULL,
     years_of_creativity text COLLATE pg_catalog."default" NOT NULL,
-    biography character varying(255) COLLATE pg_catalog."default",
+    biography text COLLATE pg_catalog."default",
     CONSTRAINT authors_pkey PRIMARY KEY (author_id)
 )
 
