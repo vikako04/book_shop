@@ -1,5 +1,7 @@
 package org.example.projectspring.entity;
 
+
+
 import jakarta.persistence.*;
 
 @Entity

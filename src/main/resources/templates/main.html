@@ -82,7 +82,7 @@
             </form>
         </div>
         <nav>
-            <a href="main.html">Home</a>
+            <a th:href="${main}">Home</a>
             <a href="profile.html">Profile</a>
             <a href="log-reg.html">Login</a>
         </nav>
@@ -97,7 +97,7 @@
                 <div class="rating">
                     <!-- Здесь можно добавить вывод рейтинга книги -->
                 </div>
-                <h3 th:text="'Тг ' + ${book.price}"></h3>
+                <h3 th:text="${book.price}+' тг'"></h3>
             </a>
         </div>
 

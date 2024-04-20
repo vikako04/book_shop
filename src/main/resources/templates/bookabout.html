@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookStore</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css" th:href="@{/style.css}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 <body>
@@ -19,20 +19,19 @@
     </header>
     <div class="book-about">
         <div class="book-description">
-            <img src="assets/images/getsb.jpg">
+            <img th:src="${book.image}">
             <div class="book-info">
                 <div class="rat-tit">
-                    <div class="h2"><h2>Великий Гэтсби</h2></div>
+                    <div class="h2"><h2 th:text="${book.title}"></h2></div>
                     <div class="rating">&#9733; &#9733; &#9733; &#9734; &#9734;</div>
                 </div>
 
-                <p><b>Автор: </b><a class="author" href="author.html">Фрэнсис Скотт Фицджеральд</a></p>
-                <p><b>Жанр: </b>роман</p>
-                <p><b>Год издания: </b>1925</p>
-                <p><b>Страниц: </b>256</p>
-                <p style="text-align: justify;">"Великий Гэтсби" – самый известный роман Фрэнсиса Фицджеральда, ставший символом "века джаза". Америка, 1925 год, время "сухого закона" и гангстерских разборок, ярких огней и яркой жизни. Но для Джея Гэтсби воплощение американской мечты обернулось настоящей трагедией. А путь наверх, несмотря на славу и богатство, привел к тотальному крушению. Ведь каждый из нас в первую очередь стремится не к материальным благам, а к любви, истинной и вечной…</p>
+                <p><b>Автор: </b><a th:href="@{'/author/' + ${book.author.id}}" class="author" href="author.html"><span th:text="${book.author.fullName}"></span></a></p>
+                <p><b>Жанры: </b><span th:each="category : ${categories}" th:text="${category.categoryName} + ' '"> </span></p>
+                <p><b>Страниц: </b><span th:text="${book.numberOfPages}">256</span></p>
+                <p style="text-align: justify;"><span th:text="${book.description}"></span></p>
                 <div class="price-btns">
-                    <div class="h2"><h2>2399 тг</h2></div>
+                    <div class="h2"><h2 th:text="${book.price} + ' тг'"></h2></div>
                     <div class="buttons">
                         <button class="button-add-to">В избранное <i class="bi bi-heart" style="font-size: 20px;"></i></button>
                         <button class="button-add-to">В корзину <i class="bi bi-cart2" style="font-size: 20px;"></i></button>

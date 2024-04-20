@@ -23,5 +23,14 @@ public class BookService
         return bookRepository.findAll();
     }
 
+    public List<Book> getBooksByAuthor(Integer authorId)
+    {
+        return bookRepository.findByAuthorId(authorId);
+    }
+
+    public Book getBookById(int id)
+    {
+        return bookRepository.findById(id).orElseThrow();
+    }
 
 }

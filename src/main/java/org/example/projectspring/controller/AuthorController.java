@@ -1,13 +1,17 @@
 package org.example.projectspring.controller;
 
 import org.example.projectspring.entity.Author;
+import org.example.projectspring.entity.Book;
 import org.example.projectspring.entity.Category;
 import org.example.projectspring.service.AuthorService;
+import org.example.projectspring.service.BookService;
 import org.example.projectspring.service.CategoryService;
-
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +28,9 @@ public class AuthorController
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private BookService bookService;
 
 
 
@@ -54,6 +61,7 @@ public class AuthorController
         {
             String fileName = photo.getOriginalFilename();
             String filePath = uploadPath + "/" + fileName;
+            String imagePath = "/assets/images/"+fileName;
             try
             {
                 photo.transferTo(new File(filePath));
@@ -63,12 +71,25 @@ public class AuthorController
                 throw new RuntimeException(e);
             }
 
-            author.setPhoto(filePath);
+            author.setPhoto(imagePath);
         }
 
 
         authorService.addAuthor(author);
 
         return "redirect:/admin-func.html";
+    }
+
+    @GetMapping("/author/{id}")
+    public String getAuthorDetails(@PathVariable("id") Integer id, Model model) {
+        Author author = authorService.getAuthorById(id);
+        model.addAttribute("author", author);
+
+        List<Category> categories = author.getCategories();
+        model.addAttribute("categories", categories);
+
+        List<Book> books = bookService.getBooksByAuthor(id);
+        model.addAttribute("books", books);
+        return "author";
     }
 }

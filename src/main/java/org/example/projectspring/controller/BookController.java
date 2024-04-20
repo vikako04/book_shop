@@ -59,6 +59,7 @@ public class BookController
         {
             String fileName = image.getOriginalFilename();
             String filePath = uploadPath + "/" + fileName;
+            String imagePath = "/assets/images/"+fileName;
             try
             {
                 image.transferTo(new File(filePath));
@@ -68,7 +69,8 @@ public class BookController
                 throw new RuntimeException(e);
             }
 
-            book.setImage(filePath);
+
+            book.setImage(imagePath);
         }
 
         Author author = authorService.getAuthorById(authorId);
