@@ -16,7 +16,7 @@ public class MainController
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/")
+    @GetMapping("/main")
     public String getMainPage(Model model)
     {
         List<Book> books = bookService.getAllBooks();
@@ -28,6 +28,11 @@ public class MainController
 
 
 
+    @GetMapping("/reg.html")
+    public String getRegPage()
+    {
+        return "reg";
+    }
 
 
     @GetMapping("/admin.html")
@@ -51,12 +56,12 @@ public class MainController
     {
         return "korzina";
     }
-    @GetMapping("/log-reg.html")
-    public String getLogRegPage()
-    {
-        return "log-reg";
-    }
-    @GetMapping("/profile.html")
+//    @GetMapping("/log")
+//    public String getLogRegPage()
+//    {
+//        return "log";
+//    }
+    @GetMapping("/profile")
     public String getProfilePage()
     {
         return "profile";
