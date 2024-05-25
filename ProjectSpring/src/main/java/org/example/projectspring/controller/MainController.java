@@ -95,12 +95,7 @@ public class MainController
 
 
 
-    @GetMapping("/author")
-    public String getAuthorPage()
-    {
 
-        return "author";
-    }
 
     @Autowired
     private FavoriteService favoriteService;

@@ -1,5 +1,9 @@
 package org.example.projectspring.controller;
 
+import org.example.projectspring.command.AddToFavoritesCommand;
+import org.example.projectspring.command.Command;
+import org.example.projectspring.command.CommandInvoker;
+import org.example.projectspring.command.RemoveFromFavoritesCommand;
 import org.example.projectspring.entity.Book;
 import org.example.projectspring.entity.MyUser;
 import org.example.projectspring.service.BookService;
@@ -28,9 +32,12 @@ public class FavoriteController {
     {
          MyUser user = userService.findById(userId);
          Book book = bookService.findById(bookId);
-         favoriteService.addToFavorites(user, book);
+         Command command = new AddToFavoritesCommand(favoriteService, user, book);
+         CommandInvoker invoker = new CommandInvoker();
+         invoker.setCommand(command);
+         invoker.executeCommand();
 
-        return "redirect:/favorites";
+         return "redirect:/favorites";
     }
 
     @PostMapping("/removeFromFav")
@@ -38,7 +45,10 @@ public class FavoriteController {
 
         MyUser user = userService.findById(userId);
         Book book = bookService.findById(bookId);
-        favoriteService.removeFromFavorites(user, book);
+        Command command = new RemoveFromFavoritesCommand(favoriteService, user, book);
+        CommandInvoker invoker = new CommandInvoker();
+        invoker.setCommand(command);
+        invoker.executeCommand();
 
 
         return "redirect:/favorites";

@@ -1,5 +1,9 @@
 package org.example.projectspring.controller;
 
+import org.example.projectspring.command.AddToCartCommand;
+import org.example.projectspring.command.Command;
+import org.example.projectspring.command.CommandInvoker;
+import org.example.projectspring.command.RemoveFromCartCommand;
 import org.example.projectspring.entity.Book;
 import org.example.projectspring.entity.MyUser;
 import org.example.projectspring.service.BookService;
@@ -26,7 +30,10 @@ public class CartController {
     {
         MyUser user = userService.findById(userId);
         Book book = bookService.findById(bookId);
-        cartService.addToCart(user, book);
+        Command command = new AddToCartCommand(cartService, user, book);
+        CommandInvoker invoker = new CommandInvoker();
+        invoker.setCommand(command);
+        invoker.executeCommand();
 
         return "redirect:/korzina";
     }
@@ -36,8 +43,10 @@ public class CartController {
 
         MyUser user = userService.findById(userId);
         Book book = bookService.findById(bookId);
-        cartService.removeFromCart(user, book);
-
+        Command command = new RemoveFromCartCommand(cartService, user, book);
+        CommandInvoker invoker = new CommandInvoker();
+        invoker.setCommand(command);
+        invoker.executeCommand();
 
 
         return "redirect:/korzina";
