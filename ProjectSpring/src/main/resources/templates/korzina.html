@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+
+        <nav>
+            <a href="/main">Home</a>
+            <a th:href="${user.getRole().equals('ADMIN')} ? '/admin' : '/profile'">Profile</a>
+
+        </nav>
+    </header>
+    <div class="profile">
+        <div class="profile-content">
+
+            <div class="sidebar">
+                <ul>
+                    <li><a th:href="${user.getRole().equals('ADMIN')} ? '/admin' : '/profile'">Личные данные</a></li>
+                    <li><a href="/favorites">Избранное</a></li>
+                    <li><a href="/korzina"><b>Корзина</b></a></li>
+                    <li th:if="${user.getRole().equals('ADMIN')}"><a href="/admin-func">Админ</a></li>
+                </ul>
+                <div class="logout-btn">
+                    <form action="/logout">
+                        <button type="submit">Выйти из аккаунта</button>
+                    </form>
+                </div>
+            </div>
+            <div class="content">
+
+                <div class="cart" th:each="book : ${books}">
+                    <div  class="items">
+                        <div class="item">
+                            <img th:src="${book.image}" alt="Book 1">
+                            <div class="item-details">
+                                <h3 th:text="${book.title}"></h3>
+                                <p th:text="${book.author.fullName}"></p>
+                                <div class="rating">
+                                    &#9733; &#9733; &#9733; &#9733; &#9734;
+                                </div>
+                                <p class="bookprice" th:text="${book.price} + ' тг'"></p>
+                                
+                            </div>
+                            <div class="item-actions">
+                                <div class="quantity">
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </div>
+                                <form method="post" action="/removeFromCart">
+                                    <input type="hidden" name="bookId" th:value="${book.id}">
+                                    <input type="hidden" name="userId" th:value="${user.id}">
+                                    <button type="submit" class="remove-btn"><i class="bi bi-trash"></i></button>
+                                </form>
+                                <div class="item-cost"><span th:text="${book.price} + ' тг'"></span></div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="total">
+                    <h3>Общая стоимость: <span id="totalPrice">0 тг</span></h3>
+                    <form id="checkoutForm" method="post" action="/buyBooks">
+                        <input type="hidden" th:value="${user.id}" name="from">
+                        <input type="hidden" value="1" name="to">
+                        <input type="hidden" id="totalAmount" name="totalAmount" value="">
+                        <button type="submit" class="btn-details">Купить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <footer>
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

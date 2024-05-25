@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" th:href="@{/style.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+
+        <nav>
+            <a href="/main">Home</a>
+            <a th:href="${user.getRole().equals('ADMIN')} ? '/admin' : '/profile'">Profile</a>
+
+        </nav>
+    </header>
+    <div class="book-about">
+        <div class="book-description">
+            <img th:src="${book.image}">
+            <div class="book-info">
+                <div class="rat-tit">
+                    <div class="h2"><h2 th:text="${book.title}"></h2></div>
+                    <div class="rating">
+                        <span th:each="star : ${#numbers.sequence(1, 5)}" th:class="${book.getRating() >= star} ? 'filled-star' : 'empty-star'" style="font-size: 50px; ">&#9733;</span>
+                    </div>
+                </div>
+
+                <p><b>Автор: </b><a th:href="@{'/author/' + ${book.author.id}}" class="author" href="author.html"><span th:text="${book.author.fullName}"></span></a></p>
+                <p><b>Жанры: </b><span th:each="category : ${categories}" th:text="${category.categoryName} + ' '"> </span></p>
+                <p><b>Страниц: </b><span th:text="${book.numberOfPages}">256</span></p>
+                <p style="text-align: justify;"><span th:text="${book.description}"></span></p>
+                <div class="price-btns">
+                    <div class="h2"><h2 th:text="${book.price} + ' тг'"></h2></div>
+                    <div class="buttons">
+                        <form action="/addToFav" method="post" style="display: inline-block;">
+                            <input type="hidden" name="bookId" th:value="${book.id}">
+                            <input type="hidden" name="userId" th:value="${user.id}">
+                            <button class="button-add-to" type="submit">В избранное <i class="bi bi-heart" style="font-size: 20px;"></i></button>
+                        </form>
+                        <form action="/addToCart" method="post" style="display: inline-block;">
+                            <input type="hidden" name="bookId" th:value="${book.id}">
+                            <input type="hidden" name="userId" th:value="${user.id}">
+                            <button class="button-add-to" type="submit">В корзину <i class="bi bi-cart2" style="font-size: 20px;"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews">
+            <h2>Вот что пишут об этой книге</h2>
+            <div class="review" th:each="review : ${reviews}">
+                <h3 th:text="${review.user.getUsername()}"></h3>
+                <div class="rating">
+                    <span th:each="star : ${#numbers.sequence(1, 5)}" th:class="${review.getRating() >= star} ? 'filled-star' : 'empty-star'" style="font-size: 20px; ">&#9733;</span>
+                </div>
+                <p th:text="${review.content}"></p>
+            </div>
+
+        </div>
+        <div class="add-review">
+            <h2>Оставьте свой отзыв</h2>
+            <form method="post" action="/addReview">
+
+                <div class="rating-area">
+                    <input type="radio" id="star-5" name="rating" value="5">
+                    <label class="star" for="star-5"></label>
+                    <input type="radio" id="star-4" name="rating" value="4">
+                    <label class="star" for="star-4" ></label>
+                    <input type="radio" id="star-3" name="rating" value="3">
+                    <label class="star" for="star-3" ></label>
+                    <input type="radio" id="star-2" name="rating" value="2">
+                    <label class="star" for="star-2" ></label>
+                    <input type="radio" id="star-1" name="rating" value="1">
+                    <label class="star" for="star-1" ></label>
+                </div>
+                <textarea name="content" placeholder="Ваш отзыв..."></textarea><br>
+
+                <input type="hidden" name="bookId" th:value="${book.id}">
+                <input type="hidden" name="userId" th:value="${user.id}">
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

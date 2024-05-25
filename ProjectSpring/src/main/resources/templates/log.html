@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookStore</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .reg-a{color: #333;}
+        .reg-a:hover{color: #666666;}
+
+
+        .alert {
+
+            position: relative;
+            margin: 20px auto;
+            padding: 10px 40px 10px 10px;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            max-width: 30%;
+
+        }
+        .alert .close {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+
+            color: #721c24;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">BOOK SHOP</div>
+
+        <nav>
+            <a href="/main">Home</a>
+            <a href="/profile">Profile</a>
+        </nav>
+    </header>
+
+    <center>    
+    <div class="log-reg-forms">
+        <div class="login-form">
+
+            <div th:if="${errorMessage}" class="alert">
+                <span th:text="${errorMessage}"></span>
+                <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+            </div>
+            <h2>Вход</h2>
+            <form method="post" th:action="@{/login}">
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+
+
+                <button class="btn-login" type="submit">Login <i class="bi bi-box-arrow-in-right"></i></button>
+
+            </form>
+            <p>Впервые у нас? <b><a href="/register" class="reg-a">Зарегистрируйтесь </a></b></p>
+
+        </div>
+
+
+    </div>
+    </center>
+
+
+    <footer class="log-footer">
+        <p>BOOK SHOP</p>
+        <p class="a">Jandosova, 55, Almaty, Kazakhstan</p>
+        <p class="a">bookshop@company.kz</p>
+        <p class="a">010-020-0340</p>
+        <p>&copy; 2024 BookStore. All rights reserved.</p>
+    </footer>
+</body>
+</html>
