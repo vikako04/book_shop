@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS public.authors
 (
     author_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     full_name text COLLATE pg_catalog."default" NOT NULL,
-    photo character varying COLLATE pg_catalog."default",
+    photo character varying COLLATE pg_catalog."default" NOT NULL,
     years_of_life text COLLATE pg_catalog."default" NOT NULL,
     years_of_creativity text COLLATE pg_catalog."default" NOT NULL,
-    biography text COLLATE pg_catalog."default",
+    biography text COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT authors_pkey PRIMARY KEY (author_id)
 )
 
@@ -55,11 +55,12 @@ ALTER TABLE IF EXISTS public.categories
 CREATE TABLE IF NOT EXISTS public.users
 (
     user_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
-    name character varying COLLATE pg_catalog."default" NOT NULL,
     username character varying COLLATE pg_catalog."default" NOT NULL,
     email character varying COLLATE pg_catalog."default" NOT NULL,
     password character varying COLLATE pg_catalog."default" NOT NULL,
-    role character varying COLLATE pg_catalog."default" NOT NULL,
+    balance integer NOT NULL DEFAULT 0,
+    role character varying COLLATE pg_catalog."default" DEFAULT USER,
+    name character varying COLLATE pg_catalog."default",
     CONSTRAINT user_id PRIMARY KEY (user_id)
 )
 
@@ -106,7 +107,7 @@ CREATE TABLE IF NOT EXISTS public.books
     author_id integer NOT NULL,
     price integer NOT NULL,
     availability integer NOT NULL,
-    rating integer NOT NULL,
+    rating integer DEFAULT 0,
     number_of_pages integer NOT NULL,
     CONSTRAINT book_id PRIMARY KEY (book_id),
     CONSTRAINT author_id FOREIGN KEY (author_id)
@@ -145,6 +146,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS public.book_category
     OWNER to postgres;
 
+
 -- Table: public.cart
 
 -- DROP TABLE IF EXISTS public.cart;
@@ -154,7 +156,6 @@ CREATE TABLE IF NOT EXISTS public.cart
     cart_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
     user_id integer NOT NULL,
     book_id integer NOT NULL,
-    quantity integer NOT NULL,
     CONSTRAINT cart_id PRIMARY KEY (cart_id),
     CONSTRAINT book_id FOREIGN KEY (book_id)
         REFERENCES public.books (book_id) MATCH SIMPLE
@@ -221,4 +222,20 @@ CREATE TABLE IF NOT EXISTS public.reviews
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.reviews
+    OWNER to postgres;
+
+-- Table: public.book_store_account
+
+-- DROP TABLE IF EXISTS public.book_store_account;
+
+CREATE TABLE IF NOT EXISTS public.book_store_account
+(
+    b_s_id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    balance integer NOT NULL DEFAULT 0,
+    CONSTRAINT book_store_account_pkey PRIMARY KEY (b_s_id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.book_store_account
     OWNER to postgres;
